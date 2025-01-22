@@ -1,0 +1,14 @@
+{
+  "name": "sisteminformasigerejanayo-api",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "prisma": "^6.2.1"
+  }
+}
