@@ -1,14 +1,56 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model Jemaat {
+  id                Int       @id @default(autoincrement())
+  nama_jemaat       String
+  tanggal_lahir     DateTime
+  alamat            String
+  nomor_telepon     String    @db.VarChar(20)
+  email             String    @unique @db.VarChar(40)
+  status_keanggotaan StatusKeanggotaan
+  created_at        DateTime  @default(now())
+  updated_at        DateTime  @updatedAt
+  kartu_keluargaid  Int
+  rayonId           Int
+
+  // Relasi
+  kartuKeluarga     KartuKeluarga @relation(fields: [kartu_keluargaid], references: [id])
+  rayon             Rayon         @relation(fields: [rayonId], references: [id])
+
+  @@index([kartu_keluargaid])
+  @@index([rayonId])
+}
+
+model KartuKeluarga {
+  id                    Int       @id @default(autoincrement())
+  nama_kepala_keluarga  String
+  alamat_keluarga       String
+  nomor_telepon_keluarga String    @db.VarChar(20)
+  created_at            DateTime  @default(now())
+  updated_at            DateTime  @updatedAt
+
+  // Relasi
+  jemaat                Jemaat[]
+}
+
+model Rayon {
+  id         Int       @id @default(autoincrement())
+  nama_rayon String
+  wilayah    String
+
+  // Relasi
+  jemaat     Jemaat[]
+}
+
+enum StatusKeanggotaan {
+  pindah
+  meninggal
+  aktif
 }

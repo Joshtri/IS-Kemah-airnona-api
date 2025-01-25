@@ -1,14 +1,23 @@
 {
   "name": "sisteminformasigerejanayo-api",
-  "module": "index.ts",
+  "module": "./src/server.ts",
   "type": "module",
+  "scripts": {
+    "start": "node ./src/server.ts",
+    "dev": "bun run --hot ./src/server.ts"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/figlet": "^1.7.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "prisma": "^6.2.1"
+    "@prisma/client": "^6.2.1",
+    "elysia": "^1.2.10",
+    "figlet": "^1.8.0",
+    "prisma": "^6.2.1",
+    "zod": "^3.24.1"
   }
 }
