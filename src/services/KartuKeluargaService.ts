@@ -1,14 +1,22 @@
-import { createKartuKeluarga } from "../repositories/KartuKeluargaRepository";
-import { findAllKartuKeluarga } from "../repositories/KartuKeluargaRepository";
+import { createKartuKeluargaRepo, deleteKartuKeluargaRepo, updateKartuKeluargaRepo } from "../repositories/KartuKeluargaRepository";
+import { findAllKartuKeluargaRepo } from "../repositories/KartuKeluargaRepository";
+import type { KartuKeluarga, KartuKeluargaCreateInput, KartuKeluargaUpdateInput } from "../types/kartuKeluarga";
 import { createKartuKeluargaSchema } from "../validations/KartuKeluargaValidation";
 
 
-export const addKartuKeluarga = async(data:any)=>{
+export const addKartuKeluarga = async(data:KartuKeluargaCreateInput)=>{
     const validateData = createKartuKeluargaSchema.parse(data);
-    return await createKartuKeluarga(validateData);
+    return await createKartuKeluargaRepo(validateData);
 };
 
-export const  findKartuKeluarga = async()=>{
-    return await findAllKartuKeluarga();
+export const  findKartuKeluarga = async() : Promise<KartuKeluarga[]>=>{
+    return await findAllKartuKeluargaRepo();
 }
 
+export const updateKartuKeluarga = async (id: number, data: KartuKeluargaUpdateInput): Promise<any> => {
+    return await updateKartuKeluargaRepo(id,data);
+}
+
+export const deleteKartuKeluarga = async (id: number): Promise<any> => {
+    return await deleteKartuKeluargaRepo(id);
+}
