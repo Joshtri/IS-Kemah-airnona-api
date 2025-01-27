@@ -1,26 +1,66 @@
-// import { Request, Response } from "express";
-import { addKartuKeluarga, findKartuKeluarga } from "../services/KartuKeluargaService";
-
-
-export const createKartuKeluargaHandler = async (req: Request, res: Response) => {
-    try {
-        const data = req.body;
-        const kartuKeluarga = await addKartuKeluarga(data);
-        return kartuKeluarga;
-        // return res.status(200).json(result);
-    } catch (error) {
-        return { error: (error as any).message };
-    }
-}
-
-export const findallKartuKeluargaHandler = async (req: Request, res: Response) => {
-    try {
-        const kartuKeluarga = await findKartuKeluarga();
-        return kartuKeluarga;
-    } catch (error) {
-        if(error instanceof Error){
-            return {error: error.message};
-        }
-      return {error: "An unknown error occurred"};
-    }
-}
+// src/controllers/kartuKeluargaController.ts  
+  
+import { addKartuKeluarga, findKartuKeluarga, updateKartuKeluarga, deleteKartuKeluarga } from "../services/KartuKeluargaService";  
+import type { Context } from "elysia";  
+  
+export const addKartuKeluargaHandler = async ({ body, set }: Context) => {  
+  try {  
+    const kartuKeluarga = await addKartuKeluarga(body);  
+    set.status = 201;  
+    return kartuKeluarga;  
+  } catch (error) {  
+    if (error instanceof Error) {  
+      set.status = 400;  
+      return { error: error.message };  
+    }  
+    set.status = 500;  
+    return { error: "An unknown error occurred" };  
+  }  
+};  
+  
+export const findAllKartuKeluargaHandler = async ({ set }: Context) => {  
+  try {  
+    const kartuKeluarga = await findKartuKeluarga();  
+    set.status = 200;  
+    return kartuKeluarga;  
+  } catch (error) {  
+    if (error instanceof Error) {  
+      set.status = 400;  
+      return { error: error.message };  
+    }  
+    set.status = 500;  
+    return { error: "An unknown error occurred" };  
+  }  
+};  
+  
+export const updateKartuKeluargaHandler = async ({ params, body, set }: Context) => {  
+  const { id } = params as { id: string };  
+  try {  
+    const kartuKeluarga = await updateKartuKeluarga(Number(id), body);  
+    set.status = 200;  
+    return kartuKeluarga;  
+  } catch (error) {  
+    if (error instanceof Error) {  
+      set.status = 400;  
+      return { error: error.message };  
+    }  
+    set.status = 500;  
+    return { error: "An unknown error occurred" };  
+  }  
+};  
+  
+export const deleteKartuKeluargaHandler = async ({ params, set }: Context) => {  
+  const { id } = params as { id: string };  
+  try {  
+    const kartuKeluarga = await deleteKartuKeluarga(Number(id));  
+    set.status = 200;  
+    return kartuKeluarga;  
+  } catch (error) {  
+    if (error instanceof Error) {  
+      set.status = 400;  
+      return { error: error.message };  
+    }  
+    set.status = 500;  
+    return { error: "An unknown error occurred" };  
+  }  
+};  
