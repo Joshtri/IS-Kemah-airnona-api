@@ -21,15 +21,25 @@ export const addKartuKeluargaHandler = async ({ body, set }: Context) => {
 export const findAllKartuKeluargaHandler = async ({ set }: Context) => {  
   try {  
     const kartuKeluarga = await findKartuKeluarga();  
-    set.status = 200;  
-    return kartuKeluarga;  
+    // set.status = 200;  
+    // return kartuKeluarga;  
+
+    return{
+      status: 200,
+      message: "kartuKeluarga retrieved successfully", 
+      data: kartuKeluarga 
+    }
   } catch (error) {  
     if (error instanceof Error) {  
-      set.status = 400;  
-      return { error: error.message };  
+      return { 
+        status: 500,
+        error: error.message 
+      };  
     }  
-    set.status = 500;  
-    return { error: "An unknown error occurred" };  
+    return { 
+      status: 500,
+      error: "An unknown error occurred" 
+    }; 
   }  
 };  
   
