@@ -11,6 +11,11 @@ export const createJemaatRepo = async (data: JemaatCreateInput) => {
   return await prisma.jemaat.create({ data });  
 };  
 
+export const findJemaatByIdRepo = async (id: number): Promise<Jemaat | null> => {
+  return await prisma.jemaat.findUnique({ where: { id } });
+}
+
+
 export const updateJemaatRepo = async (id: number, data: JemaatUpdateInput) => {
   return await prisma.jemaat.update({ where: { id }, data });
 }
