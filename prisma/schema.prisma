@@ -28,7 +28,7 @@ model Jemaat {
   @@index([rayonId])
 }
 
-model KartuKeluarga {
+  model KartuKeluarga {
   id                    Int       @id @default(autoincrement())
   nama_kepala_keluarga  String
   alamat_keluarga       String
