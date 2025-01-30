@@ -39,7 +39,7 @@ export const findJemaatById = async (id: number): Promise<Jemaat | null> => {
   return await findJemaatByIdRepo(id);
 };
 
-export const updateJemaat = async (id: number, data: JemaatUpdateInput): Promise<Jemaat> => {
+export const updateJemaat = async (id: number, data: JemaatUpdateInput): Promise<any> => {
   // const validatedData = createJemaatSchema.parse(data);
   return await updateJemaatRepo(id, data);
 }
