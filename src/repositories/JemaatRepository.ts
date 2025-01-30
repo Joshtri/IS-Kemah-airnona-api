@@ -16,9 +16,27 @@ export const findJemaatByIdRepo = async (id: number): Promise<Jemaat | null> => 
 }
 
 
+// export const updateJemaatRepo = async (id: number, data: JemaatUpdateInput) => {
+//   return await prisma.jemaat.update({ where: { id }, data });
+// }
+
 export const updateJemaatRepo = async (id: number, data: JemaatUpdateInput) => {
-  return await prisma.jemaat.update({ where: { id }, data });
-}
+  return await prisma.jemaat.update({
+    where: {
+        id: id, // Gunakan id yang diterima sebagai parameter
+    },
+    data: {
+        nama_jemaat: data.nama_jemaat,
+        tanggal_lahir: data.tanggal_lahir ? new Date(data.tanggal_lahir) : undefined, // Konversi ke Date
+        alamat: data.alamat,
+        nomor_telepon: data.nomor_telepon,
+        email: data.email,
+        status_keanggotaan: data.status_keanggotaan,
+        kartu_keluargaid: data.kartu_keluargaid,
+        rayonId: data.rayonId,
+    },
+});
+};
 
 export const deleteJemaatRepo = async (id: number) => {
   return await prisma.jemaat.delete({ where: { id } });
