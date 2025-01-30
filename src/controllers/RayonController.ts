@@ -1,6 +1,6 @@
 // src/controllers/RayonController.ts  
   
-import { addRayon, findRayon, updateRayon, deleteRayon } from "../services/RayonService";  
+import { addRayon, findRayon, updateRayon, deleteRayon, findRayonById } from "../services/RayonService";  
 import type { Context } from "elysia";  
   
 export const createRayonHandler = async (context: Context) => {  
@@ -69,3 +69,28 @@ export const deleteRayonHandler = async (context: Context) => {
         return { status: 500, error: "An unknown error occurred" };  
     }  
 };  
+
+
+export const findRayonByIdHandler = async ({ params }: Context) => {
+  const { id } = params as { id: string };
+  try {
+    const rayon = await findRayonById(Number(id));
+    return {
+      status: 200,
+      message: "Rayon retrieved successfully",
+      data: rayon
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      return {
+        status: 500,
+        error: error.message
+      };
+    }
+    return {
+      status: 500,
+      error: "An unknown error occurred"
+    };
+  }
+}
+
