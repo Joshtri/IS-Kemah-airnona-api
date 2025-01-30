@@ -1,4 +1,4 @@
-import { createRayonRepo, deleteRayonRepo, findAllRayonRepo, updateRayonRepo } from "../repositories/RayonRepository";
+import { createRayonRepo, deleteRayonRepo, findAllRayonRepo, findRayonByIdRepo, updateRayonRepo } from "../repositories/RayonRepository";
 import type { Rayon, RayonCreateInput, RayonUpdateInput } from "../types/rayon";
 import { createRayonSchema } from "../validations/RayonValidation"
 
@@ -12,6 +12,10 @@ export const findRayon = async () : Promise<Rayon[]> => {
     return await findAllRayonRepo();
 }
 
+
+export const findRayonById = async (id: number): Promise<Rayon[] | null> => {
+    return await findRayonByIdRepo(id);
+}
 
 export const updateRayon = async (id: number, data: RayonUpdateInput): Promise<any> => {
     return await updateRayonRepo(id, data);
