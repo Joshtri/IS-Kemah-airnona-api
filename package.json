@@ -1,10 +1,10 @@
 {
   "name": "sisteminformasigerejanayo-api",
-  "module": "./src/server.ts",
+  "module": "./src/server.js",
   "type": "module",
   "scripts": {
     "build": "prisma generate && tsc",
-    "start": "node --loader ts-node/esm src/server.ts",
+    "start": "node --loader ts-node/esm ./src/server.ts",
     "dev": "bun run --hot ./src/server.ts",
     "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts"
   },
@@ -17,9 +17,13 @@
   },
   "dependencies": {
     "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/swagger": "^1.2.0",
     "@prisma/client": "^6.2.1",
+    "@types/express": "^5.0.0",
     "dotenv": "^16.4.7",
     "elysia": "^1.2.10",
+    "express": "^4.21.2",
+    "fastify": "^5.2.1",
     "figlet": "^1.8.0",
     "prisma": "^6.2.1",
     "ts-node": "^10.9.2",
