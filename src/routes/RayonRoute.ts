@@ -1,6 +1,6 @@
 import {Elysia} from "elysia";
 
-import { createRayonHandler, deleteRayonHandler, findAllRayonHandler, findRayonByIdHandler, updateRayonHandler } from "../controllers/RayonController";
+import { createRayonHandler, deleteRayonHandler, findAllRayonHandler, findRayonByIdHandler, updateRayonHandler } from "../controllers/RayonController.js";
 
 export const rayonRoutes = (app: Elysia)=> {
     app.post("/api/rayon", createRayonHandler);

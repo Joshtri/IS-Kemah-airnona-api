@@ -1,10 +1,10 @@
 
 import {Elysia} from "elysia";
-import { jemaatRoutes } from "./routes/JemaatRoute";
-import { kartuKeluargaRoutes } from "./routes/KeluargaRoute";
-import { rayonRoutes } from "./routes/RayonRoute";
-import cors from "@elysiajs/cors";
-import checkConnection from "./config/dbConfig";
+import { jemaatRoutes } from "./routes/JemaatRoute.js";
+import { kartuKeluargaRoutes } from "./routes/KeluargaRoute.js";
+import { rayonRoutes } from "./routes/RayonRoute.js";
+import { cors } from "@elysiajs/cors";
+import checkConnection from "./config/dbConfig.js";
 
 
 const app = new Elysia();

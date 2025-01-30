@@ -1,6 +1,6 @@
 import {Elysia} from "elysia";
 
-import { addKartuKeluargaHandler, deleteKartuKeluargaHandler, findAllKartuKeluargaHandler, findKartuKeluargaByIdHandler, updateKartuKeluargaHandler } from "../controllers/KartuKeluargaController";
+import { addKartuKeluargaHandler, deleteKartuKeluargaHandler, findAllKartuKeluargaHandler, findKartuKeluargaByIdHandler, updateKartuKeluargaHandler } from "../controllers/KartuKeluargaController.js";
 
 export const kartuKeluargaRoutes =(app:Elysia)=>{
     app.post('/api/kartu-keluarga', addKartuKeluargaHandler);

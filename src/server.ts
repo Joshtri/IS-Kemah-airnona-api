@@ -1,8 +1,9 @@
-import app from "./app";
+import { createServer } from "http"; // Mengimpor createServer dari http module
+import app from "./app.js"; // Mengimpor app yang sudah didefinisikan
 
+const PORT = 5000;
 
-const PORT: number = 5000;
-
-app.listen(PORT, () => {
+// Membuat server HTTP menggunakan Elysia.fetch
+createServer(app.fetch).listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT} 🚀`);
 });

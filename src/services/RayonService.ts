@@ -1,6 +1,6 @@
-import { createRayonRepo, deleteRayonRepo, findAllRayonRepo, findRayonByIdRepo, updateRayonRepo } from "../repositories/RayonRepository";
-import type { Rayon, RayonCreateInput, RayonUpdateInput } from "../types/rayon";
-import { createRayonSchema } from "../validations/RayonValidation"
+import { createRayonRepo, deleteRayonRepo, findAllRayonRepo, findRayonByIdRepo, updateRayonRepo } from "../repositories/RayonRepository.js";
+import type { Rayon, RayonCreateInput, RayonUpdateInput } from "../types/rayon.js";
+import { createRayonSchema } from "../validations/RayonValidation.js"
 
 
 export const addRayon = async (data: RayonCreateInput) => {

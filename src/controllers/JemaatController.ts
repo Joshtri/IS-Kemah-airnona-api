@@ -1,6 +1,6 @@
 // src/controllers/jemaatController.ts  
   
-import { addJemaat, findJemaat, updateJemaat, deleteJemaat, findJemaatById } from "../services/JemaatService";  
+import { addJemaat, findJemaat, updateJemaat, deleteJemaat, findJemaatById } from "../services/JemaatService.js";  
 import type { Context } from "elysia";
  
   

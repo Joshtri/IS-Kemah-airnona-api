@@ -1,7 +1,7 @@
-import { createKartuKeluargaRepo, deleteKartuKeluargaRepo, findKartuKeluargaByIdRepo, updateKartuKeluargaRepo } from "../repositories/KartuKeluargaRepository";
-import { findAllKartuKeluargaRepo } from "../repositories/KartuKeluargaRepository";
-import type { KartuKeluarga, KartuKeluargaCreateInput, KartuKeluargaUpdateInput } from "../types/kartuKeluarga";
-import { createKartuKeluargaSchema } from "../validations/KartuKeluargaValidation";
+import { createKartuKeluargaRepo, deleteKartuKeluargaRepo, findKartuKeluargaByIdRepo, updateKartuKeluargaRepo } from "../repositories/KartuKeluargaRepository.js";
+import { findAllKartuKeluargaRepo } from "../repositories/KartuKeluargaRepository.js";
+import type { KartuKeluarga, KartuKeluargaCreateInput, KartuKeluargaUpdateInput } from "../types/kartuKeluarga.js";
+import { createKartuKeluargaSchema } from "../validations/KartuKeluargaValidation.js";
 
 
 export const addKartuKeluarga = async(data:KartuKeluargaCreateInput)=>{

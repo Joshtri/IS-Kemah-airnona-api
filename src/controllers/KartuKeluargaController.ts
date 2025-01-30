@@ -1,6 +1,6 @@
 // src/controllers/kartuKeluargaController.ts  
   
-import { addKartuKeluarga, findKartuKeluarga, updateKartuKeluarga, deleteKartuKeluarga, findKartuKeluargaById } from "../services/KartuKeluargaService";  
+import { addKartuKeluarga, findKartuKeluarga, updateKartuKeluarga, deleteKartuKeluarga, findKartuKeluargaById } from "../services/KartuKeluargaService.js";  
 import type { Context } from "elysia";  
   
 export const addKartuKeluargaHandler = async ({ body, set }: Context) => {  

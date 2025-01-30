@@ -1,6 +1,6 @@
-import { createJemaatSchema } from "../validations/JemaatValidation";
-import { createJemaatRepo, findAllJemaatRepo, deleteJemaatRepo, updateJemaatRepo, findJemaatByIdRepo } from "../repositories/JemaatRepository";
-import type { Jemaat, JemaatCreateInput, JemaatUpdateInput } from "../types/jemaat";  
+import { createJemaatSchema } from "../validations/JemaatValidation.js";
+import { createJemaatRepo, findAllJemaatRepo, deleteJemaatRepo, updateJemaatRepo, findJemaatByIdRepo } from "../repositories/JemaatRepository.js";
+import type { Jemaat, JemaatCreateInput, JemaatUpdateInput } from "../types/jemaat.js";  
 import { ZodError } from "zod";
 
 export const addJemaat = async (data: JemaatCreateInput) => {

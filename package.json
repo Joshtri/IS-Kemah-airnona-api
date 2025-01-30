@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "bun run ./src/server.ts",
+    "start": "node --loader ts-node/esm src/server.ts",
     "dev": "bun run --hot ./src/server.ts",
     "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts"
   },
@@ -22,6 +22,7 @@
     "elysia": "^1.2.10",
     "figlet": "^1.8.0",
     "prisma": "^6.2.1",
+    "ts-node": "^10.9.2",
     "zod": "^3.24.1"
   }
 }

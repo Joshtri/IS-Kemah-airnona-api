@@ -1,6 +1,6 @@
 // src/controllers/RayonController.ts  
   
-import { addRayon, findRayon, updateRayon, deleteRayon, findRayonById } from "../services/RayonService";  
+import { addRayon, findRayon, updateRayon, deleteRayon, findRayonById } from "../services/RayonService.js";  
 import type { Context } from "elysia";  
   
 export const createRayonHandler = async (context: Context) => {  
