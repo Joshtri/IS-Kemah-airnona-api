@@ -3,6 +3,7 @@
   "module": "./src/server.ts",
   "type": "module",
   "scripts": {
+    "build": "tsc",
     "start": "bun run ./src/server.ts",
     "dev": "bun run --hot ./src/server.ts",
     "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts"

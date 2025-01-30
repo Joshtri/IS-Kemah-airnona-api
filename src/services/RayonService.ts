@@ -13,7 +13,7 @@ export const findRayon = async () : Promise<Rayon[]> => {
 }
 
 
-export const findRayonById = async (id: number): Promise<Rayon[] | null> => {
+export const findRayonById = async (id: number) => {
     return await findRayonByIdRepo(id);
 }
 
