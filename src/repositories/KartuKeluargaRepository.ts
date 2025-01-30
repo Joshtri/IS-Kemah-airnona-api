@@ -11,6 +11,10 @@ export const findAllKartuKeluargaRepo = async () : Promise<KartuKeluarga[]> => {
   });
 };
 
+export const findKartuKeluargaByIdRepo = async (id: number) => {
+  return await prisma.kartuKeluarga.findUnique({ where: { id } });
+}
+
 export const createKartuKeluargaRepo = async (data: KartuKeluargaCreateInput) => {
   return await prisma.kartuKeluarga.create({ data });
 };
