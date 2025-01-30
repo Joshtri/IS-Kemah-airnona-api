@@ -24,3 +24,7 @@ export const updateRayonRepo = async (id: number, data: RayonUpdateInput) => {
 export const deleteRayonRepo = async (id: number) => {
   return await prisma.rayon.delete({ where: { id } });
 };
+
+export const findRayonByIdRepo = async (id: number) => {
+  return await prisma.rayon.findUnique({ where: { id } });
+}
