@@ -5,7 +5,7 @@ export const jemaatRoutes = (app: Elysia)=> {
     app.post("/api/jemaat", createJemaatHandler);
     app.get("/api/jemaat", findAllJemaatHandler);
     app.get("/api/jemaat/:id", findJemaatByIdHandler);
-    app.put("/api/jemaat/:id", updateJemaatHandler);
+    app.patch("/api/jemaat/:id", updateJemaatHandler);
     app.delete("/api/jemaat/:id", deleteJemaatHandler);
 };
 
