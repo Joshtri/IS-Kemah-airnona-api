@@ -3,8 +3,9 @@
   "module": "./src/server.ts",
   "type": "module",
   "scripts": {
-    "start": "node ./src/server.ts",
-    "dev": "bun run --hot ./src/server.ts"
+    "start": "bun run ./src/server.ts",
+    "dev": "bun run --hot ./src/server.ts",
+    "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -16,6 +17,7 @@
   "dependencies": {
     "@elysiajs/cors": "^1.2.0",
     "@prisma/client": "^6.2.1",
+    "dotenv": "^16.4.7",
     "elysia": "^1.2.10",
     "figlet": "^1.8.0",
     "prisma": "^6.2.1",
