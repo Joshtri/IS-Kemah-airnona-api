@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "prisma generate && tsc",
-    "start": "node --loader ts-node/esm ./src/server.ts",
+    "start": "node --loader ts-node/esm ./src/server.ts && prisma generate",
     "dev": "bun run --hot ./src/server.ts",
     "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts"
   },
