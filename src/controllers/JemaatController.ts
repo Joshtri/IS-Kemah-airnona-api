@@ -34,11 +34,12 @@ export const createJemaatHandler = async ({ body }: Context) => {
 export const findAllJemaatHandler = async () => {  
   try {  
     const jemaat = await findJemaat();  
+    console.log(jemaat);
     return { 
       status: 200,
       message: "Jemaat retrieved successfully", 
       data: jemaat 
-    };  
+    };
   } catch (error) {  
     if (error instanceof Error) {  
       return { 
@@ -53,17 +54,20 @@ export const findAllJemaatHandler = async () => {
   }  
 };  
   
-export const updateJemaatHandler = async ({ params, body }: Context) => {  
+export const updateJemaatHandler = async ({ params, body, set }: Context) => {  
   const { id } = params as { id: string };  
   try {  
     const jemaat = await updateJemaat(Number(id), body);  
+    // console.log(jemaat);
     return { 
       status: 200,
       message: "Jemaat updated successfully", 
       data: jemaat 
-    };  
+    };
+
   } catch (error) {  
     if (error instanceof Error) {  
+      console.log('error pada controller jemaat update : ', error);
       return { 
         status: 500,
         error: error.message 
