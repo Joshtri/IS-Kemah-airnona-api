@@ -1,6 +1,6 @@
 import { Jemaat } from "./jemaat";
 
-export interface Rayon {
+export ty-e Rayon {
     id: number;
     nama_rayon: string;
     wilayah: string;
