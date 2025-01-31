@@ -4,13 +4,13 @@
   "type": "module",
   "scripts": {
     "build": "prisma generate && tsc",
-    "start": "node --loader ts-node/esm ./src/server.ts",
+    "start": "bun run ./src/server.ts",
     "dev": "bun run --hot ./src/server.ts",
     "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts",
     "postinstall": "prisma generate"
   },
   "devDependencies": {
-    "@types/bun": "latest",
+    "@types/bun": "^1.2.1",
     "@types/figlet": "^1.7.0"
   },
   "peerDependencies": {
@@ -29,5 +29,8 @@
     "prisma": "^6.2.1",
     "ts-node": "^10.9.2",
     "zod": "^3.24.1"
+  },
+  "compilerOptions": {
+    "types": ["bun"]
   }
 }
