@@ -3,7 +3,7 @@
   "module": "./src/server.js",
   "type": "module",
   "scripts": {
-    "build": "prisma generate && tsc",
+    "build": "bun install && bun run build && prisma generate",
     "start": "bun run ./src/server.ts",
     "dev": "bun run --hot ./src/server.ts",
     "test": "export $(grep -v '^#' .env.testing | xargs) && bun run ./src/server.ts",
@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "@types/bun": "^1.2.1",
-    "@types/figlet": "^1.7.0"
+    "@types/figlet": "^1.7.0",
+    "vercel": "^39.4.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
