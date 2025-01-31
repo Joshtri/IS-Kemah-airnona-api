@@ -5,7 +5,7 @@ import app from "./app.js";
 
 const PORT = 5000;
 
-globalThis.Bun.serve({
+serve({
   port: PORT,
   fetch: app.fetch,
 });

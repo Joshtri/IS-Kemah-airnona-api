@@ -21,6 +21,7 @@
     "@elysiajs/swagger": "^1.2.0",
     "@prisma/client": "^6.2.1",
     "@types/express": "^5.0.0",
+    "bun": "^1.2.1",
     "dotenv": "^16.4.7",
     "elysia": "^1.2.10",
     "express": "^4.21.2",
