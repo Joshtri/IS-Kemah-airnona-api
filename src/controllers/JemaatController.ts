@@ -31,29 +31,38 @@ export const createJemaatHandler = async ({ body }: Context) => {
   }
 };
 
-export const findAllJemaatHandler = async () => {  
-  try {  
-    const jemaat = await findJemaat();  
-    console.log(jemaat);
-    return { 
-      status: 200,
-      message: "Jemaat retrieved successfully", 
-      data: jemaat 
-    };
-  } catch (error) {  
-    if (error instanceof Error) {  
-      return { 
+export const findAllJemaatHandler = async () => {
+  try {
+    const jemaat = await findJemaat();
+
+    if (!Array.isArray(jemaat)) {
+      return {
         status: 500,
-        error: error.message 
-      };  
-    }  
-    return { 
+        error: "Data returned is not an array"
+      };
+    }
+    
+    console.log(jemaat);
+    return {
+      status: 200,
+      message: "Jemaat retrieved successfully",
+      data: jemaat // Pastikan ini adalah array
+    };
+  } catch (error) {
+    if (error instanceof Error) {
+      return {
+        status: 500,
+        error: error.message
+      };
+    }
+    return {
       status: 500,
-      error: "An unknown error occurred" 
-    };  
-  }  
-};  
-  
+      error: "An unknown error occurred"
+    };
+  }
+};
+
+
 export const updateJemaatHandler = async ({ params, body, set }: Context) => {  
   const { id } = params as { id: string };  
   try {  
